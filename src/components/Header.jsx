@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X, Trash2, Plus, Minus } from 'lucide-react';
+import { Link, NavLink } from 'react-router-dom';
+import Logo from './Logo';
 
 export default function Header({ cart, onRemoveFromCart, onUpdateQuantity, cartOpen, setCartOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,8 +11,8 @@ export default function Header({ cart, onRemoveFromCart, onUpdateQuantity, cartO
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleWhatsappCheckout = () => {
-    const phone = "5511999999999"; // Exemplo de número
-    let message = "Olá L'Artisan! Gostaria de finalizar o pedido com os seguintes itens:\n\n";
+    const phone = "5517996574430";
+    let message = "Olá RP Utilidades Gourmet! Gostaria de finalizar o pedido com os seguintes itens:\n\n";
     cart.forEach(item => {
       message += `- ${item.name} (${item.quantity}x) - R$ ${(item.price * item.quantity).toFixed(2)}\n`;
     });
@@ -25,24 +27,43 @@ export default function Header({ cart, onRemoveFromCart, onUpdateQuantity, cartO
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="fixed top-0 left-0 w-full z-40 bg-offwhite/95 backdrop-blur-md border-b border-graphite/5 px-6 md:px-12 py-4 flex items-center justify-between"
+        className="fixed top-0 left-0 w-full z-40 bg-offwhite/95 backdrop-blur-md border-b border-graphite/5 px-6 md:px-12 py-3.5 flex items-center justify-between"
       >
         {/* Logo */}
-        <a href="#" className="text-2xl md:text-3xl font-serif font-semibold tracking-wider text-graphite hover:text-terracotta transition-colors duration-300">
-          L'Artisan
-        </a>
+        <Link to="/" className="flex items-center hover:opacity-90 transition-opacity">
+          <Logo />
+        </Link>
+
 
         {/* Floating Navigation Menu (Desktop) */}
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium tracking-widest uppercase">
-          <a href="#hero" className="text-graphite hover:text-terracotta transition-colors duration-300 relative group py-2">
+          <NavLink 
+            to="/" 
+            end
+            className={({ isActive }) => 
+              `transition-colors duration-300 relative group py-2 ${isActive ? 'text-terracotta font-semibold' : 'text-graphite hover:text-terracotta'}`
+            }
+          >
             Início
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-terracotta transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#colecao" className="text-graphite hover:text-terracotta transition-colors duration-300 relative group py-2">
-            Coleções
+          </NavLink>
+
+          <NavLink 
+            to="/catalogo" 
+            className={({ isActive }) => 
+              `transition-colors duration-300 relative group py-2 ${isActive ? 'text-terracotta font-semibold' : 'text-graphite hover:text-terracotta'}`
+            }
+          >
+            Catálogo
+            <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-terracotta transition-all duration-300 group-hover:w-full"></span>
+          </NavLink>
+
+          <a href="/#destaques" className="text-graphite hover:text-terracotta transition-colors duration-300 relative group py-2">
+            Destaques
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-terracotta transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#historia" className="text-graphite hover:text-terracotta transition-colors duration-300 relative group py-2">
+
+          <a href="/#historia" className="text-graphite hover:text-terracotta transition-colors duration-300 relative group py-2">
             Nossa Arte
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-terracotta transition-all duration-300 group-hover:w-full"></span>
           </a>
@@ -88,22 +109,29 @@ export default function Header({ cart, onRemoveFromCart, onUpdateQuantity, cartO
             transition={{ duration: 0.3 }}
             className="fixed top-[73px] left-0 w-full z-30 bg-offwhite border-b border-graphite/10 py-6 px-6 flex flex-col space-y-4 md:hidden shadow-xl"
           >
-            <a 
-              href="#hero" 
+            <Link 
+              to="/" 
               onClick={() => setMobileMenuOpen(false)}
               className="text-lg font-medium tracking-wide text-graphite hover:text-terracotta transition-colors"
             >
               Início
-            </a>
-            <a 
-              href="#colecao" 
+            </Link>
+            <Link 
+              to="/catalogo" 
               onClick={() => setMobileMenuOpen(false)}
               className="text-lg font-medium tracking-wide text-graphite hover:text-terracotta transition-colors"
             >
-              Coleções
+              Catálogo
+            </Link>
+            <a 
+              href="/#destaques" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-medium tracking-wide text-graphite hover:text-terracotta transition-colors"
+            >
+              Destaques
             </a>
             <a 
-              href="#historia" 
+              href="/#historia" 
               onClick={() => setMobileMenuOpen(false)}
               className="text-lg font-medium tracking-wide text-graphite hover:text-terracotta transition-colors"
             >
@@ -114,6 +142,7 @@ export default function Header({ cart, onRemoveFromCart, onUpdateQuantity, cartO
       </AnimatePresence>
 
       {/* Slide-over Shopping Cart Drawer */}
+
       <AnimatePresence>
         {cartOpen && (
           <>

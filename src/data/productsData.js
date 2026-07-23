@@ -76,5 +76,43 @@ export const productsData = [
     image: cutleryWood,
     badges: ["Aço Premium", "Design Minimalista"],
     description: "Sofisticação diária com acabamento fosco grafite texturizado para mesas requintadas."
+  },
+  {
+    id: 9,
+    name: "Tábua de Corte Gourmet Madeira de Nogueira",
+    price: 279.90,
+    category: "acessorios",
+    image: cutleryWood,
+    badges: ["Madeira Nobre", "Tratamento Orgânico", "Alta Espessura"],
+    description: "Tábua artesanal em madeira maciça com canaleta para sulcos, perfeita para corte e apresentação de carnes e queijos."
+  },
+  {
+    id: 10,
+    name: "Moedor Duplo de Pimenta e Sal Inox & Cerâmica",
+    price: 159.90,
+    category: "acessorios",
+    image: ceramicCasserole,
+    badges: ["Aço Inox", "Engrenagem Cerâmica", "Ajuste de Moagem"],
+    description: "Moedor duplo ajustável com mecanismo interno em cerâmica para moer especiarias frescas com facilidade."
+  },
+  {
+    id: 11,
+    name: "Frigideira Antiaderente Cerâmica Terracota (28cm)",
+    price: 299.90,
+    category: "panelas",
+    image: castIronPot,
+    badges: ["Cerâmica", "Antiaderente", "Indução"],
+    description: "Frigideira gourmet de alto desempenho com cabo térmico e revestimento cerâmico livre de PFOA."
+  },
+  {
+    id: 12,
+    name: "Jogo de Facas para Churrasco Aço Inox (6pçs)",
+    price: 319.90,
+    category: "talheres",
+    image: knifeSet,
+    badges: ["Inox 18/10", "Fio Serrilhado", "Cabo de Madeira"],
+    description: "Lâminas com serrilhado especial e cabos ergonômicos para cortes precisos em cortes nobres de carne."
   }
 ];
+
+

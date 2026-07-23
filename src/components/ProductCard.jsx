@@ -47,8 +47,8 @@ export default function ProductCard({ product, onAddToCart }) {
 
   const handleWhatsappBuy = (e) => {
     e.stopPropagation();
-    const phone = "5511999999999";
-    const text = `Olá L'Artisan! Gostaria de comprar o produto "${product.name}" no valor de R$ ${product.price.toFixed(2)}.`;
+    const phone = "5517996574430";
+    const text = `Olá RP Utilidades Gourmet! Gostaria de comprar o produto "${product.name}" no valor de R$ ${product.price.toFixed(2)}.`;
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };

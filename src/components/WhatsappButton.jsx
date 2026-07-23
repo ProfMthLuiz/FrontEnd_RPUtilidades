@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function WhatsappButton() {
-  const phone = "5511999999999"; // Substituir com o número real do vendedor
-  const text = "Olá L'Artisan! Gostaria de conhecer a coleção de utensílios premium e tirar algumas dúvidas.";
+  const phone = "5517996574430";
+  const text = "Olá RP Utilidades Gourmet! Gostaria de conhecer a coleção de utensílios premium e tirar algumas dúvidas.";
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 
   return (
